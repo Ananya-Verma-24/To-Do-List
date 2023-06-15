@@ -1,0 +1,278 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    /* background: linear-gradient(to right top,#65dfc9,#6cdbeb); */
+    background: #9873fe;
+}
+
+/* ---------------------------------------------  svg icon ------------------------------- */
+img {
+    height: 10em;
+    width: 20em;
+    position: relative;
+    left: 38%;
+    top: 4%;
+}
+
+/* ---------------------------------------------   svg floating icon ------------------------ */
+img:not(.animated) .animable {
+    opacity: 0;
+}
+
+img {
+    animation: 1.5s Infinite linear floating;
+    animation-delay: 0s;
+}
+
+@keyframes floating {
+    0% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/* -------------------------------------------- to do list container ----------------------------------------- */
+.app {
+    font-family: 'Poppins', sans-serif;
+    width: min(95vw, 500px);
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    border-radius: 0.8em;
+    /* background: linear-gradient(to right bottom, rgba(255,255,255,0.7),rgba(255,255,255,0.3)); */
+    top: 10.875em;
+    z-index: 2;
+
+}
+
+.container {
+    /* background: #fff; */
+    padding: 2em 2.5em;
+    /* background: linear-gradient(to right bottom, rgba(255,255,255,0.7),rgba(255,255,255,0.3)); */
+    background: #ffffff;
+    box-shadow: 0 1em 2em rgba(217, 147, 247, 0.3);
+    border-radius: 0.8em;
+    /* z-index: 4; */
+    backdrop-filter: blur(0.8rem);
+}
+
+/* -----------------------------------------------------  task input --------------------------------- */
+#wrapper {
+
+    position: relative;
+    display: grid;
+    grid-template-columns: 8fr 4fr;
+    gap: 1em;
+
+}
+
+#wrapper input {
+    width: 100%;
+    background-color: transparent;
+    color: #9873fe;
+    font-size: 0.9em;
+    border: none;
+    border-bottom: 2px solid #e5dbff;
+    padding: 1em 0.5em;
+}
+
+#wrapper input:focus {
+    outline: none;
+    border-color: #2a0240;
+}
+
+/* ------------------------------------------------ add button --------------------- */
+#wrapper button {
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 0.5em;
+    font-weight: 750;
+    font-size: 1.1em;
+    background: #9873fe;
+    box-shadow: 5px 5px 8px #cacad0;
+    border: none;
+    color: #ffffff;
+    transition-duration: 1s;
+    transition-property: box-shadow;
+}
+
+#wrapper button:hover {
+    color: #9873fe;
+    background: #e5dbff;
+    cursor: pointer;
+    box-shadow: rgba(127, 46, 240, 0.4) 5px 5px, rgba(159, 46, 240, 0.3) 10px 10px, rgba(159, 46, 240, 0.2) 15px 15px;
+
+}
+
+#wrapper button:active {
+    box-shadow: 7px 6px 28px 1px rgba(219, 243, 244, 0.24);
+    transform: translateY(3px);
+}
+
+/* ---------------------------------------------  task input --------------------------------------- */
+#tasks {
+    margin-top: 1em;
+    border-radius: 0.5em;
+    width: 100%;
+    position: relative;
+    padding: 1em 0.5em;
+
+}
+
+.task {
+    /* background: linear-gradient(to right bottom, rgba(255,255,255,0.7),rgba(255,255,255,0.3)); */
+    background: #e5dbff;
+    padding: 0.8em 1em;
+    display: grid;
+    grid-template-columns: 1fr 8fr 2fr 2fr;
+    gap: 1em;
+    border-radius: 0.5em;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.05);
+    align-items: center;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    color: #9873fe;
+    font-weight: 700;
+    transition: all 0.5s ease;
+    
+
+}
+
+.task:not(:first-child) {
+    margin-top: 1em;
+}
+
+/* ----------------------------------------------- checkbox -------------------------------- */
+.task input[type="checkbox"] {
+    position: relative;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 2px solid #aca8ac;
+}
+
+.task input[type="checkbox"]:before {
+    content: "";
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+
+.task input[type="checkbox"]:checked {
+    background-color: #9873fe;
+    border-color: #9873fe;
+}
+
+.task input[type="checkbox"]:checked:before {
+    position: absolute;
+    content: "\f00c";
+    color: #ffffff;
+    font-size: 0.8em;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+
+}
+
+.task span {
+    font: 0.9em;
+    font-weight: 400;
+    word-break: break-all;
+}
+
+/* -------------------------------------------------  edit / delete buttons ------------------------------ */
+.task button {
+    color: #ffffff;
+    /* background: linear-gradient(to right top,#65dfc9,#6cdbeb); */
+    background: #9873fe;
+    width: 100%;
+    padding: 1em 0;
+    border-radius: 0.5em;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.task button:hover {
+    color: #d6c5f6;
+    cursor: pointer;
+}
+
+/* --------------------------------------  pending msg --------------------- */
+#pending-tasks {
+    color: #3b3e3e;
+}
+
+#pending-tasks span {
+    color: #9873fe;
+}
+
+/* --------------------------------------- completed tasks ---------------------- */
+.completed {
+    text-decoration: line-through;
+    color: #a0a0a0;
+}
+
+.fade {
+    opacity: 0.5;
+}
+
+.fall {
+    transform: translateY(8rem) rotateZ(20deg);
+    opacity: 0;
+}
+/* -----------------------------------------  error msg -------------------------------------------- */
+#error {
+    text-align: center;
+    background: #fff;
+    /* background: linear-gradient(to right bottom, rgba(255,255,255,0.7),rgba(255,255,255,0.3)); */
+    color: #f44343;
+    margin-top: 1.5em;
+    padding: 1em 0;
+    border-radius: 0.8em;
+    display: none;
+}
+
+
+/* ------------------------------------------------- background ----------------------- */
+.circle1,
+.circle2 {
+    background: #fff;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    position: absolute;
+
+}
+
+
+
+.circle1 {
+    top: 14%;
+    right: 29%;
+}
+
+.circle2 {
+    height: 14rem;
+    width: 14rem;
+    bottom: 35%;
+    left: 22%;
+}
